@@ -22,7 +22,8 @@ from gtts import gTTS
 
 st.title("i-Lens")
 st.write('Blind Lives Matter')
-st.image("images/blind.jpg", use_column_width=False, channels='RGB',output_formats=True)
+# st.image("H:\\My Drive\\Techs\\1stDayHack\\TF\\models\\research\\images\\blind.jpg", use_column_width=False, channels='RGB',output_formats=True)  
+st.header("Active Obstacle Avoidance System :camera:")
 image_placeholder = st.empty()
 message = st.empty()
 scores = 0
