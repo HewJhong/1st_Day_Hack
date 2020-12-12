@@ -15,15 +15,15 @@ from IPython.display import display
 from object_detection.utils import ops as utils_ops
 from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as vis_util
+
+
 from width_control import *
 import easyocr
 from gtts import gTTS 
 
 
 st.title("i-Lens")
-st.write('Blind Lives Matter')
-st.image("images/blind.jpg", use_column_width=False, channels='RGB',output_formats=True)
-image_placeholder = st.empty()
+
 message = st.empty()
 scores = 0
 classes = 0
@@ -164,21 +164,74 @@ def decision (xin, xax, yin, yax):
       return "Walk Straight"
     elif ((xmax-xmin)*(ymax-ymin) >= 150000):
       return "Stop"
-    elif (xmax >= xsize-path and xmin <= xsize+path and (xmax-xmin)*(ymax-ymin) >= 100000):
+    elif (xmax >= xsize-path and xmin <= xsize+path):
       if (xmax < xsize):
         return "Right"
       else: 
         return "Left"
     else:
-      return "Walk Straight"
+      return "Stop"
   else:
     return "Walk Straight"
 
 #Now we open the webcam and start detecting objects
 #Streamlit version
+
+
+select_block_container_style()
+
+cache = open("cache.txt",'r')
+startNum = cache.read()
+cache.close()
+
+language = 'en'
+
+
+#make cache file which store text image
+if not os.path.isdir("image_text_detection"):
+    os.mkdir("image_text_detection")
+    
+imgList = (os.listdir("image_text_detection"))
+tempForStatus = []
+for img in imgList:
+    tempForStatus.append(int((img.split('.jpg'))[0]))
+
+#find the largest num in tempForStatus as temp_status
+temp_status = max(tempForStatus)
+
+
+#header
+st.info('Hope this application can help the blinds :smile:')
+st.markdown('# Help the blind application :sunglasses:')
+st.write('Blind Life Matter')
+st.image('images/blind.jpg', use_column_width=False, channels='RGB',output_formats=True)
+
+
+st.markdown("<br>",unsafe_allow_html=True)
+
+#create cache file with startNum = 0
+#if not os.path.exists("cache.txt"):
+#    os.mkdir("cache.txt")
+if st.button("Clear Cache"):
+    cache = open("cache.txt","w+")
+    cache.write('0')
+    cache.close()
+    
+    cache = open("cache.txt",'r')
+    startNum = cache.read()
+    cache.close()
+    
+    cache = open("detectedWord.txt","w+")
+    cache.close()
+
+st.markdown("<br>",unsafe_allow_html=True)
+
+st.header("Live Object Detection")
+image_placeholder = st.empty()
+
 import cv2
 video_capture = cv2.VideoCapture(0)
-if st.button("Start", key="start-live-button"):
+if st.button("Start", key="start-button"):
   while True:
       # Capture frame-by-frame
       re,frame = video_capture.read()
@@ -194,7 +247,7 @@ if st.button("Start", key="start-live-button"):
         frame = cv2.putText(Imagenp,'Right', (300, 50),cv2.FONT_HERSHEY_SIMPLEX,1.5,(0,0,255),2)
       image_placeholder.image(Imagenp)  
 
-if st.button("Stop", key="stop-live-btn"):
+if st.button("Stop", key="stop-btn"):
   video_capture.release()
 
 #Command Prompt version
@@ -229,49 +282,13 @@ if st.button("Stop", key="stop-live-btn"):
 # video_capture.release()
 # cv2.destroyAllWindows()
 
-cache = open("H:\\My Drive\\Techs\\1stDayHack\\TF\\models\\research\\cache.txt",'r')
-startNum = cache.read()
-cache.close()
 
-language = 'en'
+st.markdown("<br><hr><br>",unsafe_allow_html=True)
 
-#make cache file which store text image
-if not os.path.isdir("image_text_detection"):
-    os.mkdir("image_text_detection")
-    
-imgList = (os.listdir("H:\\My Drive\\Techs\\1stDayHack\\TF\\models\\research\\image_text_detection"))
-tempForStatus = []
-for img in imgList:
-    tempForStatus.append(int((img.split('.jpg'))[0]))
-
-#find the largest num in tempForStatus as temp_status
-tempForStatus.sort()
-temp_status = tempForStatus[-1]
-
-
-st.markdown("<br>",unsafe_allow_html=True)
-
-#create cache file with startNum = 0
-#if not os.path.exists("cache.txt"):
-#    os.mkdir("cache.txt")
-if st.button("Clear Cache"):
-    cache = open("cache.txt","w+")
-    cache.write('0')
-    cache.close()
-    
-    cache = open("cache.txt",'r')
-    startNum = cache.read()
-    cache.close()
-    
-    cache = open("detectedWord.txt","w+")
-    cache.close()
-
-st.markdown("<br>",unsafe_allow_html=True)
-
-image_placeholder = st.empty()
 
 st.header("Camera for text detetction :camera:")
     
+
 #place WebCam
 vedioStart = False
 vedioMessage = st.empty()
@@ -281,6 +298,8 @@ image = st.empty()
 
 image_placeholder = st.empty()
 video = cv2.VideoCapture(0)
+
+
 
 col1,col2,col3,temp1,temp2,temp3 = st.beta_columns(6)
 
@@ -292,6 +311,7 @@ with col2:
         
 with col3: 
     stopButton = st.button(' stop ',key='stop-btn')
+
 
 if stopButton:
     #change start num = 0  in txt
@@ -348,7 +368,9 @@ if startButton or startNum=='1':
         image_placeholder.image(image,use_column_width=False)
 
 st.markdown("<br><br>",unsafe_allow_html=True)
+
 st.header(" Detected Texts :abc:")
+
 
 detectedText = st.button('detect latest image', key='detect_text-btn')
 #display recognised text
@@ -361,6 +383,7 @@ if detectedText:
     tempForSort = []
     for img in imgList:
         tempForSort.append(int((img.split('.jpg'))[0]))
+    
     
     #find the largest num in tempForSort then find the index number
     largestNum = max(tempForSort)
