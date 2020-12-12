@@ -20,13 +20,6 @@ import easyocr
 from gtts import gTTS 
 
 
-cache = open("cache.txt",'r')
-startNum = cache.read()
-cache.close()
-
-language = 'en'
-
-
 st.title("i-Lens")
 image_placeholder = st.empty()
 message = st.empty()
@@ -236,6 +229,12 @@ if st.button("Stop", key="stop-btn"):
 
 select_block_container_style()
 
+
+cache = open("cache.txt",'r')
+startNum = cache.read()
+cache.close()
+
+language = 'en'
 
 #make cache file which store text image
 if not os.path.isdir("image_text_detection"):
