@@ -364,7 +364,9 @@ if detectedText:
         tempForSort.append(int((img.split('.jpg'))[0]))
     
     #find the largest num in tempForSort then find the index number
-    largestNum = max(tempForSort)
+    tempForSort.sort()
+    largestNum = tempForSort[-1]
+    # largestNum = max(tempForSort)
     indexOfLargest = tempForSort.index(largestNum)
     
     imgList = (os.listdir("image_text_detection"))
