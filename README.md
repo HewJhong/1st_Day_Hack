@@ -16,6 +16,11 @@ use this command to install all the requirements:
 ```
 pip install -r requirements.txt
 ```
+# To Run This Web App
+use this command to run in streamlit:
+```
+streamlit run HelpBlind.py
+```
 
 # Note
 Some of the elements / widgets will not work unless you change the directory to your local machine directory
