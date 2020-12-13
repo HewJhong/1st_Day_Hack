@@ -1,6 +1,6 @@
 gTTs==1.1.8
 easyocr==1.2.1
-python==3.8.5
+python=3.8.5
 tensorflow==2.3.0
 opencv-python==4.4.0
 streamlit==0.72.0
