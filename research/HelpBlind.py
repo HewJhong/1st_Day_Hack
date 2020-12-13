@@ -1,4 +1,3 @@
-
 import streamlit as st
 import os
 from width_control import *
@@ -14,8 +13,6 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="collapsed"
 )
-
-select_block_container_style()
 
 cache = open("cache.txt",'r')
 startNum = cache.read()
@@ -207,16 +204,4 @@ if text_to_speech:
     song = "detectedText_to_speech.mp3"
     voice = st.audio(song)
     
-    
-
-st.markdown("<br><br><hr><br>",unsafe_allow_html=True)
-###############################################################
-#     Hew code
-###############################################################
-
-st.header("Live Object Detection")
-
-
-
-
 #%%
