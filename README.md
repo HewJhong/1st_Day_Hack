@@ -17,9 +17,11 @@ use this command to install all the requirements:
 pip install -r requirements.txt
 ```
 # To Run This Web App
-use this command to run in streamlit:
+use this command to run in streamlit: 
+
+**Note that you have to cd inside the research file first**
 ```
-streamlit run /research/realtd1.py
+streamlit run realtd1.py
 ```
 
 # Note
