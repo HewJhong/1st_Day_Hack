@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 # Note
 Some of the elements / widgets will not work unless you change the directory to your local machine directory
-eg. C://Document//models//research//images_text_detection
+eg. C://Document//research//images_text_detection
 
 # What it does?
 - It can help to detect object in front of the blinds and instruct him/her to go left or go right.
