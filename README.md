@@ -19,7 +19,7 @@ pip install -r requirements.txt
 # To Run This Web App
 use this command to run in streamlit:
 ```
-streamlit run HelpBlind.py
+streamlit run /research/realtd1.py
 ```
 
 # Note
