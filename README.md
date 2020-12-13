@@ -47,12 +47,13 @@ If the error file not found exist, they consider making the directory to absolut
 
 # What it does?
 - It can help to detect object in front of the blinds and instruct him/her to go left, right, continue walking or stop.
+
 - It can help to detect text and convert to speech.
 
 # Current Cons
 - Text detection to speech cannot be combine together in the real time obstacle avoidance system due to streamlit limitations, currently it is store as another file. In the future, text detection to speech will be implemented in the main application. 
 - Currently this application is running on streamlit and only works PC's. In future, we will implement this application to be use in small portable cameras and become the best companion for the blind :)
 
-# Demo
+# Demo  
 You can watch YouTube video link below about how our Web App work! 
-(add link here)
+https://www.youtube.com/watch?v=0LM8Xf1nGzM&feature=youtu.be&fbclid=IwAR1ekuggGRjHrgmBexOhr8xyrm-5AGh7GAuMy-SWC16nls788Gxza3xtMM4&ab_channel=TanCK
