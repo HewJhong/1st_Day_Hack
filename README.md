@@ -1,7 +1,7 @@
 # i-Lens :sunglasses:
 
 ## Introduction
-This web application implements Tensorflow to allow people who are blind or suffer from sight *illness
+This web application implements Tensorflow to allow people who are blind or suffer from sight *illness to move to other places which they haven't went before without guidance and assistance for other people.
 
 # Installation
 
