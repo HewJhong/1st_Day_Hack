@@ -46,7 +46,7 @@ eg. C://Document//research//images_text_detection
 If the error file not found exist, they consider making the directory to absolute directory instead of relative.
 
 # What it does?
-- It can help to detect object in front of the blinds and instruct him/her to go left or go right.
+- It can help to detect object in front of the blinds and instruct him/her to go left, right, continue walking or stop.
 - It can help to detect text and convert to speech.
 
 # Current Cons
