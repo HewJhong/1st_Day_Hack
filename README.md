@@ -6,7 +6,9 @@ This web application implements Tensorflow to allow people who are blind or suff
 # Installation
 
 This application is tested and build in the conda environement with python 3.8.5. To prevent compatibility issues, please install Python 3.8.5 using the command
-``` conda install python=3.8.4```
+``` conda install python=3.8.5```
+Install OpenCV from the official page or through command line
+``` pip install opencv-python```
 ### For tensorflow
 use this command to install everything tensorflow need:
 ```
