@@ -14,6 +14,9 @@ pip install pillow Cython lxml jupyter matplotlib contextlib2 tf_slim
 ```
 for more information about tensor flow can find out at https://www.mygreatlearning.com/blog/object-detection-using-tensorflow/
 
+## For PyTorch
+to install Pytorch, please visit the page https://pytorch.org/ and download the correct version for you machine.
+
 
 ### Requirements
 use this command to install all the requirements:
