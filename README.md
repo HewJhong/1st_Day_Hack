@@ -17,12 +17,19 @@ use this command to install all the requirements:
 pip install -r requirements.txt
 ```
 # To Run This Web App
+## run live object detection
 use this command to run in streamlit: 
 
 **Note that you have to cd inside the research file first**
 ```
 streamlit run realtd1.py
 ```
+## run text detection
+use this command to run in streamlit:
+```
+streamlit run text-detection.py
+```
+
 
 # Note
 Some of the elements / widgets will not work unless you change the directory to your local machine directory
