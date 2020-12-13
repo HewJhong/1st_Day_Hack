@@ -4,12 +4,16 @@
 This web application implements Tensorflow to allow people who are blind or suffer from sight *illness
 
 # Installation
+
+This application is tested and build in the conda environement with python 3.8.5. To prevent compatibility issues, please install Python 3.8.5 using the command
+``` conda install python=3.8.4```
 ### For tensorflow
 use this command to install everything tensorflow need:
 ```
 pip install pillow Cython lxml jupyter matplotlib contextlib2 tf_slim
 ```
 for more information about tensor flow can find out at https://www.mygreatlearning.com/blog/object-detection-using-tensorflow/
+
 
 ### Requirements
 use this command to install all the requirements:
@@ -35,6 +39,7 @@ If the error file not found exist, they consider making the directory to absolut
 
 # Current Cons
 - Text detection to speech cannot be combine together in the real time obstacle avoidance system due to streamlit limitations, currently it is store as another file. In the future, text detection to speech will be implemented in the main application. 
+- Currently this application is running on streamlit and only works PC's. In future, we will implement this application to be use in small portable cameras and become the best companion for the blind :)
 
 # Demo
 You can watch YouTube video link below about how our Web App work! 
